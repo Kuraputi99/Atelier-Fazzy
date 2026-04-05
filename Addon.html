@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addon – Atelier Fazzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/Addon.css">
+</head>
+
+<body>
+    <div class="cave-bg" aria-hidden="true">
+        <canvas id="cave-canvas"></canvas>
+    </div>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="Home.html" class="site-logo">✦ Atelier Fazzy</a>
+            <nav class="site-nav" id="site-nav">
+                <ul>
+                    <li><a href="Home.html" class="nav-link">Home</a></li>
+                    <li><a href="Game.html" class="nav-link">Game</a></li>
+                    <li><a href="Tool.html" class="nav-link">Tool</a></li>
+                    <li><a href="Addon.html" class="nav-link active">Addon</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero page-hero--addon">
+            <div class="container">
+                <h1 class="page-title">Addon</h1>
+                <p class="page-sub">制作したアドオンの一覧です。</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="card-grid">
+                    <article class="card" data-category="addon">
+                        <div class="card-thumb">
+                            <img src="Assets/Icon/yccve.png" alt="Yellow Calmness Cat -Very Easy-" loading="lazy">
+                        </div>
+                        <div class="card-header">
+                            <div class="card-badge">Addon</div>
+                            <span class="card-version">4.0XR</span>
+                        </div>
+                        <h3 class="card-title">Yellow Calmness Cat -Very Easy-</h3>
+                        <p class="card-desc">攻撃手段が多く演出に特化したモブ。殺傷力・耐久力共にバランスがとれている。<br>対応バージョン: v26.1~</p>
+                        <div class="card-meta">
+                            <span class="tag">Bedrock</span>
+                            <span class="tag">Flashiness</span>
+                            <span class="tag">Mob</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn--primary">x Unfinished</a>
+                            <a href="#" class="btn btn--ghost">▶ 詳細</a>
+                        </div>
+                    </article>
+                    <article class="card" data-category="addon">
+                        <div class="card-thumb">
+                            <img src="Assets/Icon/ycce.png" alt="Yellow Calmness Cat -Easy-" loading="lazy">
+                        </div>
+                        <div class="card-header">
+                            <div class="card-badge">Addon</div>
+                            <span class="card-version">4.0XR</span>
+                        </div>
+                        <h3 class="card-title">Yellow Calmness Cat -Easy-</h3>
+                        <p class="card-desc">スポーン時の演出と背景に特化した棒立ちモブ。GametestEXを使用しているため取り扱い注意。<br>対応バージョン: v26.1~</p>
+                        <div class="card-meta">
+                            <span class="tag">Bedrock</span>
+                            <span class="tag">Flashiness</span>
+                            <span class="tag">Inflation</span>
+                            <span class="tag">Mob</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn--primary">x Unfinished</a>
+                            <a href="#" class="btn btn--ghost">▶ 詳細</a>
+                        </div>
+                    </article>
+                    <article class="card" data-category="addon">
+                        <div class="card-thumb">
+                            <img src="Assets/Icon/ycch.png" alt="Yellow Calmness Cat -Hard-" loading="lazy">
+                        </div>
+                        <div class="card-header">
+                            <div class="card-badge">Addon</div>
+                            <span class="card-version">4.0XR</span>
+                        </div>
+                        <h3 class="card-title">Yellow Calmness Cat -Hard-</h3>
+                        <p class="card-desc">大幅に殺傷力が向上した棒立ちモブ。耐久力も高くディスペンサー使用を推奨。<br>対応バージョン: v26.1~</p>
+                        <div class="card-meta">
+                            <span class="tag">Bedrock</span>
+                            <span class="tag">Inflation</span>
+                            <span class="tag">Mob</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn--primary">x Unfinished</a>
+                            <a href="#" class="btn btn--ghost">▶ 詳細</a>
+                        </div>
+                    </article>
+                    <article class="card" data-category="addon">
+                        <div class="card-thumb">
+                            <img src="Assets/Icon/yccvh.png" alt="Yellow Calmness Cat -Very Hard-" loading="lazy">
+                        </div>
+                        <div class="card-header">
+                            <div class="card-badge">Addon</div>
+                            <span class="card-version">4.0XR</span>
+                        </div>
+                        <h3 class="card-title">Yellow Calmness Cat -Very Hard-</h3>
+                        <p class="card-desc">Alive偽装や時止めといった論外技術を利用したモブもどき。作るべきではなかった負の遺産。<br>対応バージョン: v26.1~</p>
+                        <div class="card-meta">
+                            <span class="tag">Bedrock</span>
+                            <span class="tag">Inflation</span>
+                            <span class="tag">Fraud</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn--primary">x Unfinished</a>
+                            <a href="#" class="btn btn--ghost">▶ 詳細</a>
+                        </div>
+                    </article>
+                    <article class="card" data-category="addon">
+                        <div class="card-thumb">
+                            <img src="Assets/Icon/ycw.png" alt="Yellow Calmness Witherzilla" loading="lazy">
+                        </div>
+                        <div class="card-header">
+                            <div class="card-badge">Addon</div>
+                            <span class="card-version">4.0XR</span>
+                        </div>
+                        <h3 class="card-title">Yellow Calmness Witherzilla</h3>
+                        <p class="card-desc">WitherzillaとYCCのコラボモブ。スポーンカウンターなどの特殊な技術を使用。<br>対応バージョン: v26.1~</p>
+                        <div class="card-meta">
+                            <span class="tag">Bedrock</span>
+                            <span class="tag">Inflation</span>
+                            <span class="tag">Mob</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn--primary">x Unfinished</a>
+                            <a href="#" class="btn btn--ghost">▶ 詳細</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>◆ © 2026 Atelier Fazzy. All rights reserved. ◆</p>
+    </footer>
+
+    <script src="JS/common.js"></script>
+</body>
+
+</html>
