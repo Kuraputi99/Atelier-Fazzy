@@ -2,7 +2,7 @@
   "items": [
     {
       "title": "AFLib_DX12",
-      "image": "Images/NoImage.png",
+      "image": "../Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "AFLib_DX12",
       "descKey": "work.tool01.desc",
@@ -15,7 +15,7 @@
     },
     {
       "title": "Phantom Changed",
-      "image": "Images/NoImage.png",
+      "image": "../Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "Phantom Changed",
       "descKey": "work.game01.desc",
@@ -28,7 +28,7 @@
     },
     {
       "title": "YCC【Very Easy】",
-      "image": "Images/YCCVE.png",
+      "image": "../Images/YCCVE.png",
       "alt": "YCCVE",
       "descKey": "work.addon01.desc",
       "tags": ["ADDON", "FLASHINESS"],
@@ -40,7 +40,7 @@
     },
     {
       "title": "YCC【Easy】",
-      "image": "Images/YCCE.png",
+      "image": "../Images/YCCE.png",
       "alt": "YCCE",
       "descKey": "work.addon02.desc",
       "tags": ["ADDON", "FLASHINESS"],
@@ -52,7 +52,7 @@
     },
     {
       "title": "YCC【Hard】",
-      "image": "Images/YCCH.png",
+      "image": "../Images/YCCH.png",
       "alt": "YCCH",
       "descKey": "work.addon03.desc",
       "tags": ["ADDON", "INFLATION"],
@@ -64,7 +64,7 @@
     },
     {
       "title": "YCC【Very Hard】",
-      "image": "Images/YCCVH.png",
+      "image": "../Images/YCCVH.png",
       "alt": "YCCVH",
       "descKey": "work.addon04.desc",
       "tags": ["ADDON", "INFLATION"],
@@ -76,7 +76,7 @@
     },
     {
       "title": "YCW",
-      "image": "Images/YCW.png",
+      "image": "../Images/YCW.png",
       "alt": "YCW",
       "descKey": "work.addon05.desc",
       "tags": ["ADDON", "INFLATION"],
@@ -88,7 +88,7 @@
     },
     {
       "title": "Vheltar Ephonixm",
-      "image": "Images/NoImage.png",
+      "image": "../Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "Vheltar Ephonixm",
       "descKey": "work.addon06.desc",
@@ -101,7 +101,7 @@
     },
     {
       "title": "MergeIllusion",
-      "image": "Images/MergeIllusion.png",
+      "image": "../Images/MergeIllusion.png",
       "imageClass": "pixel-icon",
       "alt": "MergeIllusion",
       "descKey": "work.game02.desc",
@@ -114,7 +114,7 @@
     },
     {
       "title": "AFUniCoder",
-      "image": "Images/NoImage.png",
+      "image": "../Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "AFUniCoder",
       "descKey": "work.tool02.desc",
