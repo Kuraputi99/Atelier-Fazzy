@@ -1,0 +1,129 @@
+{
+  "items": [
+    {
+      "title": "AFLib_DX12",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
+      "alt": "AFLib_DX12",
+      "descKey": "work.tool01.desc",
+      "tags": ["TOOL", "C++"],
+      "category": "tool",
+      "isNew": true,
+      "downloads": [
+        { "label": "&gt; Download", "url": "https://github.com/xxx/AFLib_DX12/releases", "status": "completed", "version": "v0.1.0" }
+      ]
+    },
+    {
+      "title": "Phantom Changed",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
+      "alt": "Phantom Changed",
+      "descKey": "work.game01.desc",
+      "tags": ["GAME", "WINDOWS"],
+      "category": "game",
+      "isNew": true,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v0.0.1" }
+      ]
+    },
+    {
+      "title": "YCC【Very Easy】",
+      "image": "Images/YCCVE.png",
+      "alt": "YCCVE",
+      "descKey": "work.addon01.desc",
+      "tags": ["ADDON", "FLASHINESS"],
+      "category": "addon",
+      "isNew": true,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v3.1.0" }
+      ]
+    },
+    {
+      "title": "YCC【Easy】",
+      "image": "Images/YCCE.png",
+      "alt": "YCCE",
+      "descKey": "work.addon02.desc",
+      "tags": ["ADDON", "FLASHINESS"],
+      "category": "addon",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v3.1.0" }
+      ]
+    },
+    {
+      "title": "YCC【Hard】",
+      "image": "Images/YCCH.png",
+      "alt": "YCCH",
+      "descKey": "work.addon03.desc",
+      "tags": ["ADDON", "INFLATION"],
+      "category": "addon",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v3.1.0" }
+      ]
+    },
+    {
+      "title": "YCC【Very Hard】",
+      "image": "Images/YCCVH.png",
+      "alt": "YCCVH",
+      "descKey": "work.addon04.desc",
+      "tags": ["ADDON", "INFLATION"],
+      "category": "addon",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v3.1.0" }
+      ]
+    },
+    {
+      "title": "YCW",
+      "image": "Images/YCW.png",
+      "alt": "YCW",
+      "descKey": "work.addon05.desc",
+      "tags": ["ADDON", "INFLATION"],
+      "category": "addon",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v3.1.0" }
+      ]
+    },
+    {
+      "title": "Vheltar Ephonixm",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
+      "alt": "Vheltar Ephonixm",
+      "descKey": "work.addon06.desc",
+      "tags": ["ADDON", "INFLATION"],
+      "category": "addon",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v0.8.0" }
+      ]
+    },
+    {
+      "title": "MergeIllusion",
+      "image": "Images/MergeIllusion.png",
+      "imageClass": "pixel-icon",
+      "alt": "MergeIllusion",
+      "descKey": "work.game02.desc",
+      "tags": ["GAME", "PHONE", "UNITY"],
+      "category": "game",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Private", "url": "#", "status": "private", "version": "v1.0.1" }
+      ]
+    },
+    {
+      "title": "AFUniCoder",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
+      "alt": "AFUniCoder",
+      "descKey": "work.tool02.desc",
+      "tags": ["TOOL", "WINDOWS"],
+      "category": "tool",
+      "isNew": false,
+      "downloads": [
+        { "label": "&gt; Private", "url": "#", "status": "private", "version": "v3.0.0" }
+      ]
+    }
+  ]
+}

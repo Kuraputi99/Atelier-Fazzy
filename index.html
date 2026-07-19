@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Fazzy | Home</title>
+  <meta name="description" content="Atelier Fazzy - By Kuraputi">
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+  <div class="frame">
+    <!-- ヘッダー部分 -->
+    <header class="site-header">
+      <a href="index.html" class="logo">ATELIER FAZZY</a>
+      <div class="header-right">
+        <nav class="nav">
+          <a href="index.html" class="nav-active">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="works.html">WORKS</a>
+        </nav>
+        <div class="lang-toggle">
+          <button class="lang-btn" data-lang="en">ENGLISH</button>
+          <button class="lang-btn is-active" data-lang="ja">日本語</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- メイン部分 -->
+    <section class="hero">
+      <div class="hero-dots">
+        <span class="dot dot-plain"></span>
+        <span class="dot dot-accent"></span>
+        <span class="dot dot-plain"></span>
+      </div>
+      <h1 class="hero-title" data-i18n="hero.title">title_text</h1>
+      <p class="hero-sub" data-i18n="hero.subtext">title_subtext</p>
+      <a href="works.html" class="btn-pixel" data-i18n="hero.viewbutton">title_view_button</a>
+    </section>
+
+    <!-- 活動部分 -->
+    <section class="trend-header">
+      <h2 data-i18n="trend.header">title_works</h2>
+    </section>
+    <section class="works" id="works">
+
+      <!-- 作品一覧へのリンク -->
+      <a href="works.html" class="card card-empty">
+        <span data-i18n="trend.seeall">trend_see_all</span>
+      </a>
+
+    </section>
+
+    <!-- フッター部分 -->
+    <footer class="site-footer">
+      (C) 2026 ATELIER FAZZY
+    </footer>
+
+  </div>
+
+  <script src="JavaScript/lang.js"></script>
+  <script src="JavaScript/works_render.js"></script>
+</body>
+
+</html>
