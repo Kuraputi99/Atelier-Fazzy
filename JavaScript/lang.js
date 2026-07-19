@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  fetch('../Json/translations.json')
+  fetch('Json/translations.json')
     .then(function (res) { return res.json(); })
     .then(function (json) {
       dict = json;
