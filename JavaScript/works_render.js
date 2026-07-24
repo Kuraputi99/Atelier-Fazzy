@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function getInitialLang() {
     var saved = null;
-    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { }
     if (saved === 'ja' || saved === 'en') return saved;
     var activeBtn = document.querySelector('.lang-btn.is-active');
     return activeBtn ? activeBtn.getAttribute('data-lang') : 'en';
@@ -66,12 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
         link.className = 'download-btn' + (isCompleted ? '' : ' is-disabled');
         link.innerHTML = dl.label;
         if (isCompleted) {
-            link.target = '_blank';
-            link.rel = 'noopener';
+          link.target = '_blank';
+          link.rel = 'noopener';
         } else {
-            link.href = 'javascript:void(0)';
-            link.setAttribute('aria-disabled', 'true');
-            link.tabIndex = -1;
+          link.href = 'javascript:void(0)';
+          link.setAttribute('aria-disabled', 'true');
+          link.tabIndex = -1;
         }
 
         var version = document.createElement('span');
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   Promise.all([
     fetch('Json/works_data.json').then(function (r) { return r.json(); }),
-    fetch('Json/lang_translate.json').then(function (r) { return r.json(); })
+    fetch('Json/translate_data.json').then(function (r) { return r.json(); })
   ]).then(function (results) {
     items = results[0].items;
     dict = results[1];
