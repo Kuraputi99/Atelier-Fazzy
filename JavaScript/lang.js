@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  fetch('Json/translations.json')
+  fetch('Json/lang_translate.json')
     .then(function (res) { return res.json(); })
     .then(function (json) {
       dict = json;
       applyLang(currentLang);
     })
     .catch(function (err) {
-      console.error('Failed to load translations.json', err);
+      console.error('Failed to load lang_translate.json', err);
     });
 });

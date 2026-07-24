@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   Promise.all([
     fetch('Json/works_data.json').then(function (r) { return r.json(); }),
-    fetch('Json/translations.json').then(function (r) { return r.json(); })
+    fetch('Json/lang_translate.json').then(function (r) { return r.json(); })
   ]).then(function (results) {
     items = results[0].items;
     dict = results[1];

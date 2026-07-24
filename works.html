@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atelier Fazzy | Works</title>
-  <meta name="description" content="Atelier Fazzy - Works: Addons, Tools and Games">
+  <meta name="description" content="Atelier Fazzy - Works">
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-
   <div class="frame">
+
     <!-- ヘッダー部分 -->
     <header class="site-header">
       <a href="index.html" class="logo">ATELIER FAZZY</a>
@@ -28,11 +28,13 @@
       </div>
     </header>
 
+    <!-- メイン セクション -->
     <section class="page-heading">
       <h1>&gt; WORKS</h1>
       <p data-i18n="works.page.sub">works_subtext</p>
     </section>
 
+    <!-- フィルター部分 -->
     <nav class="filter-bar" aria-label="Filter works by category">
       <button class="filter-btn is-active" data-filter="all">ALL</button>
       <button class="filter-btn" data-filter="addon">ADDON</button>
@@ -40,16 +42,20 @@
       <button class="filter-btn" data-filter="game">GAME</button>
     </nav>
 
+    <!-- ワークカード セクション -->
     <section class="works" id="works-grid"></section>
 
+    <!-- 活動履歴がない場合のテキスト -->
     <p class="no-results" id="no-results" hidden data-i18n="works.noresults">works_noresults</p>
 
+    <!-- フッター部分 -->
     <footer class="site-footer">
       (C) 2026 ATELIER FAZZY
     </footer>
 
   </div>
 
+  <!-- スクリプト読み込み -->
   <script src="JavaScript/lang.js"></script>
   <script src="JavaScript/works_render.js"></script>
 </body>
