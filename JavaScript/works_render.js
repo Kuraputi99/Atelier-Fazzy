@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var row = document.createElement('div');
         row.className = 'download-row';
 
-        var isCompleted = dl.status === 'completed';
+        var isCompleted = dl.url !== '#';
 
         var link = document.createElement('a');
         link.href = dl.url;
