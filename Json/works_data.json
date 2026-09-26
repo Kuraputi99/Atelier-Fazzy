@@ -25,7 +25,7 @@
       "descKey": "work.game01.desc",
       "tags": ["GAME", "WINDOWS"],
       "category": "game",
-      "isNew": true,
+      "isNew": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -35,26 +35,23 @@
       ]
     },
     {
-      "title": "YCC【Very Easy】",
-      "image": "Images/YCCVE.png",
-      "alt": "YCCVE",
-      "descKey": "work.addon01.desc",
-      "tags": ["ADDON", "FLASHINESS"],
+      "title": "AF_UI",
+      "image": "Images/AF_UI.png",
+      "alt": "AF_UI",
+      "descKey": "work.addon07.desc",
+      "tags": ["RESOURCE"],
       "category": "addon",
       "isNew": true,
       "downloads": [
-        {
-          "label": "&gt; Progress",
-          "url": "#",
-          "version": "v3.1.0"
-        }
+        { "label": "&gt; Download", "url": "Downloads/AF_UI V1.0.mcpack", "status": "completed", "version": "V1.0", "download": true }
       ]
     },
     {
-      "title": "YCC【Easy】",
-      "image": "Images/YCCE.png",
-      "alt": "YCCE",
-      "descKey": "work.addon02.desc",
+      "title": "YCC【Very Easy】",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
+      "alt": "YCCVE",
+      "descKey": "work.addon01.desc",
       "tags": ["ADDON", "FLASHINESS"],
       "category": "addon",
       "isNew": false,
@@ -67,8 +64,22 @@
       ]
     },
     {
+      "title": "YCC【Easy】",
+      "image": "Images/YCC_FACE.png",
+      "imageClass": "pixel-icon",
+      "alt": "YCCE",
+      "descKey": "work.addon02.desc",
+      "tags": ["ADDON", "FLASHINESS"],
+      "category": "addon",
+      "isNew": true,
+      "downloads": [
+        { "label": "&gt; Progress", "url": "#", "status": "progress", "version": "v3.1.0" }
+      ]
+    },
+    {
       "title": "YCC【Hard】",
-      "image": "Images/YCCH.png",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
       "alt": "YCCH",
       "descKey": "work.addon03.desc",
       "tags": ["ADDON", "INFLATION"],
@@ -84,7 +95,8 @@
     },
     {
       "title": "YCC【Very Hard】",
-      "image": "Images/YCCVH.png",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
       "alt": "YCCVH",
       "descKey": "work.addon04.desc",
       "tags": ["ADDON", "INFLATION"],
@@ -99,7 +111,8 @@
     },
     {
       "title": "YCW",
-      "image": "Images/YCW.png",
+      "image": "Images/NoImage.png",
+      "imageClass": "pixel-icon",
       "alt": "YCW",
       "descKey": "work.addon05.desc",
       "tags": ["ADDON", "INFLATION"],
