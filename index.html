@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atelier Fazzy | Home</title>
-  <meta name="description" content="Atelier Fazzy - Home">
+  <meta name="description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="apple-touch-icon" href="Images/apple-touch-icon.png">
   <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- SNSで共有された時のカード表示(OGP)。URLの先頭部分は build.js が site.config.json の値に置き換える -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atelier Fazzy">
+  <meta property="og:title" content="Atelier Fazzy | Home">
+  <meta property="og:description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <meta property="og:url" content="{{SITE_URL}}index.html">
+  <meta property="og:image" content="{{SITE_URL}}Images/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body data-root="">
   <div class="frame">
 
     <!-- ヘッダー部分 -->
     <header class="site-header">
       <a href="index.html" class="logo">ATELIER FAZZY</a>
-      <div class="header-right">
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-menu" id="site-menu">
         <nav class="nav">
           <a href="index.html" class="nav-active">HOME</a>
           <a href="about.html">ABOUT</a>
@@ -35,33 +49,63 @@
         <span class="dot dot-accent"></span>
         <span class="dot dot-plain"></span>
       </div>
-      <h1 class="hero-title" data-i18n="hero.title">title_text</h1>
-      <p class="hero-sub" data-i18n="hero.subtext">title_subtext</p>
-      <a href="works.html" class="btn-pixel" data-i18n="hero.viewbutton">title_view_button</a>
+      <h1 class="hero-title" data-i18n="hero.title">hero.title</h1>
+      <p class="hero-sub" data-i18n="hero.sub">hero.sub</p>
+      <a href="works.html" class="btn-pixel" data-i18n="hero.button">hero.button</a>
     </section>
 
-    <!-- トレンド セクション -->
-    <section class="trend-header">
-      <h2 data-i18n="trend.header">title_works</h2>
+    <!-- お知らせ セクション(home_render.js が news_data.json から表示) -->
+    <section class="section-header">
+      <h2 data-i18n="news.header">news.header</h2>
+    </section>
+    <section class="news-list" id="news-list"></section>
+
+    <!-- おすすめ作品 セクション -->
+    <section class="section-header">
+      <h2 data-i18n="featured.header">featured.header</h2>
     </section>
 
-    <!-- 活動ページへのリンク セクション -->
-    <section class="works" id="works">
-      <a href="works.html" class="card card-empty">
-        <span data-i18n="trend.seeall">trend_see_all</span>
+    <!-- おすすめ作品カード(works_render.js が作品を追加) -->
+    <section class="works-grid" id="featured-works">
+      <a href="works.html" class="card card-see-all">
+        <span data-i18n="featured.seeall">featured.seeall</span>
       </a>
+    </section>
+
+    <!-- SNS セクション(home_render.js が YouTube の最新動画と X のポストを表示) -->
+    <section class="section-header">
+      <h2 data-i18n="sns.header">sns.header</h2>
+    </section>
+    <section class="sns">
+      <div class="sns-col">
+        <h3 class="sns-title">YouTube</h3>
+        <div class="video-list" id="video-list"></div>
+        <div class="sns-links">
+          <a class="btn-small" id="youtube-channel-link" href="#" target="_blank" rel="noopener" data-i18n="sns.youtube.channel">sns.youtube.channel</a>
+          <a class="btn-small" id="youtube-posts-link" href="#" target="_blank" rel="noopener" data-i18n="sns.youtube.posts">sns.youtube.posts</a>
+        </div>
+      </div>
+      <div class="sns-col">
+        <h3 class="sns-title">X</h3>
+        <div class="x-timeline" id="x-timeline"></div>
+      </div>
     </section>
 
     <!-- フッター部分 -->
     <footer class="site-footer">
-      (C) 2026 ATELIER FAZZY
+      <a href="terms.html" class="footer-link" data-i18n="footer.terms">footer.terms</a>
+      <span>(C) 2026 ATELIER FAZZY</span>
     </footer>
 
   </div>
 
-  <!-- スクリプト読み込み -->
+  <!-- スクリプト読み込み(common.js を最初に) -->
+  <script src="JavaScript/common.js"></script>
   <script src="JavaScript/lang.js"></script>
+  <script src="JavaScript/menu.js"></script>
+  <script src="JavaScript/like.js"></script>
   <script src="JavaScript/works_render.js"></script>
+  <script src="JavaScript/home_render.js"></script>
 </body>
 
-</html>
+</html>

@@ -1,18 +1,18 @@
 {
   "en": {
     "hero.title": "Welcome to ATELIER FAZZY",
-    "hero.subtext": "Freely and at your own pace, multiply the fun",
-    "hero.viewbutton": "&gt; View Works",
+    "hero.sub": "Freely and at your own pace, multiply the fun",
+    "hero.button": "&gt; View Works",
 
-    "trend.header": "LATEST WORKS",
-    "trend.seeall": "&gt; See all works",
+    "featured.header": "LATEST WORKS",
+    "featured.seeall": "&gt; See all works",
 
     "about.page.sub": "Who we are?",
     "about.p1": "Atelier Fazzy is an online group where Kuraputi and Towaly freely create and share their projects.",
     "about.p2": "We develop games, useful tools, and Minecraft Bedrock Edition addons, which are available for everyone to enjoy.",
     "about.p3": "We also have a YouTube channel, so be sure to subscribe and turn on notifications to stay updated with our latest content.",
     "about.kuraputi.bio": "Mainly responsible for design, development, and testing.<br>Level 1 software engineer working at an IT company.<br>Loves Furry and Ramen.",
-    "about.towaly.bio": "Mainly responsible for requirements and testing.<br>Kuraputi's coworker.<br>Gets scary when playing games. (lol)",    
+    "about.towaly.bio": "Mainly responsible for requirements and testing.<br>Kuraputi's coworker.<br>Gets scary when playing games. (lol)",
 
     "works.page.sub": "Our Projects",
     "work.tool01.desc": "DirectX 12-based library.<br>Built specifically for game development.",
@@ -26,15 +26,34 @@
     "work.addon05.desc": "Witherzillaとのコラボ<br>特殊なシステムを搭載",
     "work.addon06.desc": "「壊滅女神」をモチーフに<br>外部機能も搭載(限定公開)",
     "work.addon07.desc": "アドオンの演出を豪華にする<br>拡張パック",
-    "works.noresults": "No works in this Category yet..."
+    "works.noresults": "No works in this Category yet...",
+    "news.header": "NEWS",
+    "news.empty": "No news yet.",
+
+    "sns.header": "SNS",
+    "sns.youtube.channel": "&gt; Channel",
+    "sns.youtube.posts": "&gt; Posts",
+    "sns.youtube.empty": "Check out our latest videos on the channel.",
+    "sns.x.fallback": "&gt; See posts on X",
+
+    "detail.back": "&lt; Back to works",
+    "detail.downloads": "DOWNLOAD",
+    "detail.about": "ABOUT THIS WORK",
+    "detail.screenshots": "SCREENSHOTS",
+    "detail.video": "VIDEO",
+    "detail.requirements": "REQUIREMENTS",
+    "detail.install": "HOW TO INSTALL",
+    "detail.changelog": "CHANGELOG",
+
+    "footer.terms": "Terms of Use"
   },
   "ja": {
     "hero.title": "ようこそ ATELIER FAZZY へ",
-    "hero.subtext": "じゆうきままに 愉しみをかくさん",
-    "hero.viewbutton": "&gt; 作品一覧はこちら",
+    "hero.sub": "じゆうきままに 愉しみをかくさん",
+    "hero.button": "&gt; 作品一覧はこちら",
 
-    "trend.header": "げきあつな作品たち",
-    "trend.seeall": "&gt; 作品をすべて見る",
+    "featured.header": "げきあつな作品たち",
+    "featured.seeall": "&gt; 作品をすべて見る",
 
     "about.page.sub": "じぶんたちについて",
     "about.p1": "「Atelier Fazzy」は Kuraputi と Towaly の2人で自由気ままに活動するオンライングループです。",
@@ -55,6 +74,25 @@
     "work.addon05.desc": "Witherzillaとのコラボ<br>特殊なシステムを搭載",
     "work.addon06.desc": "「壊滅女神」をモチーフに<br>外部機能も搭載(限定公開)",
     "work.addon07.desc": "アドオンの演出を豪華にする<br>拡張パック",
-    "works.noresults": "このカテゴリの作品はまだありません..."
+    "works.noresults": "このカテゴリの作品はまだありません...",
+    "news.header": "おしらせ",
+    "news.empty": "おしらせはまだありません",
+
+    "sns.header": "SNS",
+    "sns.youtube.channel": "&gt; チャンネルを見る",
+    "sns.youtube.posts": "&gt; 投稿を見る",
+    "sns.youtube.empty": "最新の動画はチャンネルでチェック",
+    "sns.x.fallback": "&gt; X でポストを見る",
+
+    "detail.back": "&lt; 作品一覧へ戻る",
+    "detail.downloads": "ダウンロード",
+    "detail.about": "この作品について",
+    "detail.screenshots": "スクリーンショット",
+    "detail.video": "紹介動画",
+    "detail.requirements": "動作環境",
+    "detail.install": "導入方法",
+    "detail.changelog": "更新履歴",
+
+    "footer.terms": "利用規約"
   }
-}
+}

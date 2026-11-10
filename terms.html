@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Fazzy | Terms</title>
+  <meta name="description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="apple-touch-icon" href="Images/apple-touch-icon.png">
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- SNSで共有された時のカード表示(OGP)。URLの先頭部分は build.js が site.config.json の値に置き換える -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atelier Fazzy">
+  <meta property="og:title" content="Atelier Fazzy | Terms">
+  <meta property="og:description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <meta property="og:url" content="{{SITE_URL}}terms.html">
+  <meta property="og:image" content="{{SITE_URL}}Images/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body data-root="">
+  <div class="frame">
+
+    <!-- ヘッダー部分 -->
+    <header class="site-header">
+      <a href="index.html" class="logo">ATELIER FAZZY</a>
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-menu" id="site-menu">
+        <nav class="nav">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="works.html">WORKS</a>
+        </nav>
+        <div class="lang-toggle">
+          <button class="lang-btn" data-lang="en">ENGLISH</button>
+          <button class="lang-btn is-active" data-lang="ja">日本語</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- メイン セクション -->
+    <section class="page-heading">
+      <h1>&gt; TERMS</h1>
+      <p data-i18n="footer.terms">footer.terms</p>
+    </section>
+
+    <!-- 規約本文(data-lang-only で日本語と英語を書き分け) -->
+    <section class="doc-body">
+      <div data-lang-only="ja">
+        <p>Atelier Fazzy（以下「私たち」）が配布している作品（アドオン・ツール・ゲームなど）を使う前に、以下の内容を確認してください。作品をダウンロード・使用した時点で、この規約に同意したものとします。</p>
+
+        <h2>1. 二次配布の禁止</h2>
+        <p>作品を、他のサイト・SNS・配布サービスなどで再配布することを禁止します。改変したものも同様です。作品を紹介していただく場合は、このサイトまたは作品ページへのリンクでお願いします。</p>
+
+        <h2>2. モデルの使用禁止</h2>
+        <p>作品に含まれるモデルを取り出して、他の作品に使ったり、自作のものとして公開したりすることを禁止します。</p>
+
+        <h2>3. クレジット表記のお願い</h2>
+        <p>作品を紹介・使用していただく際は、「Atelier Fazzy」の名前とこのサイトへのリンクを記載していただけると嬉しいです（必須ではありません）。</p>
+
+        <h2>4. 免責事項</h2>
+        <p>作品の使用によって生じたトラブルや損害（データの破損など）について、私たちは責任を負いません。大切なワールドで使う前には、バックアップをとることをおすすめします。</p>
+
+        <h2>5. 規約の変更</h2>
+        <p>この規約は、予告なく変更することがあります。変更後の内容は、このページに掲載した時点から有効になります。</p>
+
+        <p class="doc-date">制定日：2026年11月10日</p>
+      </div>
+
+      <div data-lang-only="en">
+        <p>Please read the following before using any work distributed by Atelier Fazzy ("we"), such as addons, tools, and games. By downloading or using our works, you agree to these terms.</p>
+
+        <h2>1. No redistribution</h2>
+        <p>You may not redistribute our works on other websites, social media, or distribution services. This also applies to modified versions. If you want to share our works, please link to this site or the work's page.</p>
+
+        <h2>2. No use of models</h2>
+        <p>You may not extract the models included in our works to use them in other works or publish them as your own.</p>
+
+        <h2>3. Credit (appreciated)</h2>
+        <p>When you introduce or use our works, we would appreciate it if you credited "Atelier Fazzy" with a link to this site (not required).</p>
+
+        <h2>4. Disclaimer</h2>
+        <p>We are not responsible for any trouble or damage (such as corrupted data) caused by using our works. We recommend backing up important worlds before use.</p>
+
+        <h2>5. Changes to these terms</h2>
+        <p>These terms may change without notice. Changes take effect when they are posted on this page.</p>
+
+        <p class="doc-date">Effective: November 10, 2026</p>
+      </div>
+    </section>
+
+    <!-- フッター部分 -->
+    <footer class="site-footer">
+      <a href="terms.html" class="footer-link" data-i18n="footer.terms">footer.terms</a>
+      <span>(C) 2026 ATELIER FAZZY</span>
+    </footer>
+
+  </div>
+
+  <!-- スクリプト読み込み(common.js を最初に) -->
+  <script src="JavaScript/common.js"></script>
+  <script src="JavaScript/lang.js"></script>
+  <script src="JavaScript/menu.js"></script>
+  <script src="JavaScript/like.js"></script>
+</body>
+
+</html>

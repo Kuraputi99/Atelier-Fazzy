@@ -1,147 +1,205 @@
+/*-作品データ(works_data.json)から作品カードを作って表示する-*/
+/*-ホームでは「おすすめ作品(featured: true)」だけ、作品一覧ページでは全作品をカテゴリ絞り込み付きで表示-*/
+/*-説明文の翻訳は lang.js から届く 'af:langchange' イベントで受け取る-*/
+/*-ダウンロード数は build.js が作る stats_data.json、いいねは like.js が担当-*/
 document.addEventListener('DOMContentLoaded', function () {
-  var STORAGE_KEY = 'atelier-fazzy-lang';
+  const featuredList = document.getElementById('featured-works'); // ホーム用
+  const allList = document.getElementById('all-works');           // 作品一覧ページ用
+  const noResults = document.getElementById('no-results');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  if (!featuredList && !allList) return;
 
-  function getInitialLang() {
-    var saved = null;
-    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { }
-    if (saved === 'ja' || saved === 'en') return saved;
-    var activeBtn = document.querySelector('.lang-btn.is-active');
-    return activeBtn ? activeBtn.getAttribute('data-lang') : 'en';
+  let items = null;
+  let stats = {};
+  let dict = null;
+  let currentLang = null;
+  let currentFilter = 'all';
+
+  /* ---------- カードの部品を作る ---------- */
+
+  /*-作品詳細ページへのリンク(詳細ページは build.js が works/作品ID.html として作る)-*/
+  function detailUrl(item) {
+    return AF.root + 'works/' + item.id + '.html';
   }
 
-  var currentLang = getInitialLang();
-  var currentFilter = 'all';
-  var dict = null;
-  var items = null;
-
-  var homeList = document.getElementById('works');
-  var gridList = document.getElementById('works-grid');
-  var noResults = document.getElementById('no-results');
-  var filterButtons = document.querySelectorAll('.filter-btn');
-
-  function buildCard(item) {
-    var article = document.createElement('article');
-    article.className = 'card';
-    article.setAttribute('data-category', item.category);
-
-    var thumb = document.createElement('div');
+  function buildThumb(item) {
+    const thumb = document.createElement('a');
     thumb.className = 'card-thumb';
-    var img = document.createElement('img');
+    thumb.href = detailUrl(item);
+    const img = document.createElement('img');
     img.src = item.image;
     img.alt = item.alt || item.title;
     if (item.imageClass) img.className = item.imageClass;
     thumb.appendChild(img);
+    return thumb;
+  }
 
-    var body = document.createElement('div');
-    body.className = 'card-body';
-    var h2 = document.createElement('h2');
-    h2.textContent = item.title;
-    var p = document.createElement('p');
-    p.innerHTML = (dict[currentLang] && dict[currentLang][item.descKey]) || '';
-
-    body.appendChild(h2);
-    body.appendChild(p);
-
-    var tagRow = document.createElement('div');
+  function buildTags(tags) {
+    const tagRow = document.createElement('div');
     tagRow.className = 'tag-row';
-    (item.tags || []).forEach(function (t) {
-      var tag = document.createElement('span');
+    (tags || []).forEach(function (t) {
+      const tag = document.createElement('span');
       tag.className = 'tag';
       tag.textContent = t;
       tagRow.appendChild(tag);
     });
-    body.appendChild(tagRow);
+    return tagRow;
+  }
 
-    if (item.downloads && item.downloads.length) {
-      var dlList = document.createElement('div');
-      dlList.className = 'download-list';
-      item.downloads.forEach(function (dl) {
-        var row = document.createElement('div');
-        row.className = 'download-row';
+  /*-ダウンロード行(url が '#' の物は未公開として押せない表示にする)-*/
+  function buildDownloadRow(dl) {
+    const row = document.createElement('div');
+    row.className = 'download-row';
 
-        var isCompleted = dl.url !== '#';
+    const isAvailable = dl.url !== '#';
+    let btn;
+    if (isAvailable) {
+      btn = document.createElement('a');
+      btn.href = dl.url;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.className = 'download-btn';
+    } else {
+      btn = document.createElement('span');
+      btn.className = 'download-btn is-disabled';
+      btn.setAttribute('aria-disabled', 'true');
+    }
+    btn.innerHTML = dl.label;
 
-        var link = document.createElement('a');
-        link.href = dl.url;
-        link.className = 'download-btn' + (isCompleted ? '' : ' is-disabled');
-        link.innerHTML = dl.label;
-        if (isCompleted) {
-          link.target = '_blank';
-          link.rel = 'noopener';
-        } else {
-          link.href = 'javascript:void(0)';
-          link.setAttribute('aria-disabled', 'true');
-          link.tabIndex = -1;
-        }
+    const version = document.createElement('span');
+    version.className = 'version-badge';
+    version.textContent = dl.version || '';
 
-        var version = document.createElement('span');
-        version.className = 'version-badge';
-        version.textContent = dl.version || '';
+    row.appendChild(btn);
+    row.appendChild(version);
+    return row;
+  }
 
-        row.appendChild(link);
-        row.appendChild(version);
-        dlList.appendChild(row);
-      });
-      body.appendChild(dlList);
+  function buildDownloads(downloads) {
+    const dlList = document.createElement('div');
+    dlList.className = 'download-list';
+    downloads.forEach(function (dl) {
+      dlList.appendChild(buildDownloadRow(dl));
+    });
+    return dlList;
+  }
+
+  /*-ダウンロード数といいねボタンの行-*/
+  function buildMeta(item) {
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+
+    const itemStats = stats[item.id];
+    if (itemStats && typeof itemStats.downloads === 'number') {
+      const dl = document.createElement('span');
+      dl.className = 'dl-count';
+      dl.textContent = 'DL ' + itemStats.downloads.toLocaleString();
+      meta.appendChild(dl);
     }
 
-    article.appendChild(thumb);
-    article.appendChild(body);
-    return article;
+    const like = document.createElement('button');
+    like.type = 'button';
+    like.className = 'like-btn';
+    like.setAttribute('data-like-id', item.id);
+    like.hidden = true; // いいね API がある時だけ like.js が表示する
+    meta.appendChild(like);
+    return meta;
   }
 
-  function renderHome() {
-    if (!homeList) return;
-    var seeAll = homeList.querySelector('.card-empty');
-    homeList.querySelectorAll('.card:not(.card-empty)').forEach(function (c) { c.remove(); });
-    items.filter(function (i) { return i.isNew; }).forEach(function (item) {
-      var card = buildCard(item);
-      if (seeAll) homeList.insertBefore(card, seeAll);
-      else homeList.appendChild(card);
+  function buildBody(item) {
+    const body = document.createElement('div');
+    body.className = 'card-body';
+
+    const title = document.createElement('h2');
+    const titleLink = document.createElement('a');
+    titleLink.href = detailUrl(item);
+    titleLink.textContent = item.title;
+    title.appendChild(titleLink);
+    const desc = document.createElement('p');
+    desc.innerHTML = dict[currentLang][item.descKey] || '';
+
+    body.appendChild(title);
+    body.appendChild(desc);
+    body.appendChild(buildTags(item.tags));
+    body.appendChild(buildMeta(item));
+    if (item.downloads && item.downloads.length) {
+      body.appendChild(buildDownloads(item.downloads));
+    }
+    return body;
+  }
+
+  function buildCard(item) {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.setAttribute('data-category', item.category);
+    card.appendChild(buildThumb(item));
+    card.appendChild(buildBody(item));
+    return card;
+  }
+
+  /* ---------- 表示する ---------- */
+
+  /*-ホーム：おすすめ作品を「作品をすべて見る」カードの前に並べる-*/
+  function renderFeatured() {
+    if (!featuredList) return;
+    const seeAll = featuredList.querySelector('.card-see-all');
+    featuredList.querySelectorAll('.card:not(.card-see-all)').forEach(function (c) { c.remove(); });
+    items.filter(function (item) { return item.featured; }).forEach(function (item) {
+      featuredList.insertBefore(buildCard(item), seeAll);
     });
   }
 
-  function renderGrid() {
-    if (!gridList) return;
-    gridList.innerHTML = '';
-    var visibleCount = 0;
-    items.forEach(function (item) {
-      if (currentFilter !== 'all' && item.category !== currentFilter) return;
-      gridList.appendChild(buildCard(item));
-      visibleCount++;
-    });
-    if (noResults) noResults.hidden = visibleCount !== 0;
-  }
-
+  /*-作品一覧：選択中のカテゴリの作品だけ並べる-*/
   function renderAll() {
-    renderHome();
-    renderGrid();
+    if (!allList) return;
+    allList.innerHTML = '';
+    const visibleItems = items.filter(function (item) {
+      return currentFilter === 'all' || item.category === currentFilter;
+    });
+    visibleItems.forEach(function (item) {
+      allList.appendChild(buildCard(item));
+    });
+    if (noResults) noResults.hidden = visibleItems.length !== 0;
   }
 
+  /*-作品データと翻訳データの両方がそろったら表示-*/
+  function render() {
+    if (!items || !dict) return;
+    renderFeatured();
+    renderAll();
+    if (AF.likes) AF.likes.attach(featuredList || allList);
+  }
+
+  /* ---------- イベント ---------- */
+
+  /*-カテゴリ絞り込みボタン-*/
   filterButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       filterButtons.forEach(function (b) { b.classList.remove('is-active'); });
       btn.classList.add('is-active');
       currentFilter = btn.getAttribute('data-filter');
-      renderGrid();
+      render();
     });
   });
 
-  document.querySelectorAll('.lang-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      currentLang = btn.getAttribute('data-lang');
-      if (items && dict) renderAll();
-    });
+  /*-言語が変わったら(最初の読み込み時も含む)作り直す-*/
+  document.addEventListener('af:langchange', function (e) {
+    dict = e.detail.dict;
+    currentLang = e.detail.lang;
+    render();
   });
 
-  Promise.all([
-    fetch('Json/works_data.json').then(function (r) { return r.json(); }),
-    fetch('Json/translate_data.json').then(function (r) { return r.json(); })
-  ]).then(function (results) {
-    items = results[0].items;
-    dict = results[1];
-    renderAll();
-  }).catch(function (err) {
-    console.error('Failed to load works data', err);
-  });
+  /*-作品データを読み込む(非同期)-*/
+  /*-ダウンロード数は無くても表示できるので、読めなければ空にする-*/
+  const statsLoad = AF.loadJSON('Json/stats_data.json').catch(function () { return {}; });
+
+  Promise.all([AF.loadJSON('Json/works_data.json'), statsLoad])
+    .then(function (results) {
+      items = results[0].items;
+      stats = results[1];
+      render();
+    })
+    .catch(function (err) {
+      console.error('Failed to load works_data.json', err);
+    });
 });

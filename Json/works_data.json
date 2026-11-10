@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "aflib-dx12",
       "title": "AFLib_DX12",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -8,7 +9,7 @@
       "descKey": "work.tool01.desc",
       "tags": ["TOOL", "C++"],
       "category": "tool",
-      "isNew": true,
+      "featured": true,
       "downloads": [
         {
           "label": "&gt; Download",
@@ -18,6 +19,7 @@
       ]
     },
     {
+      "id": "phantom-changed",
       "title": "Phantom Changed",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -25,7 +27,7 @@
       "descKey": "work.game01.desc",
       "tags": ["GAME", "WINDOWS"],
       "category": "game",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -35,24 +37,24 @@
       ]
     },
     {
+      "id": "af-ui",
       "title": "AF_UI",
       "image": "Images/AF_UI.png",
       "alt": "AF_UI",
       "descKey": "work.addon07.desc",
       "tags": ["RESOURCE"],
       "category": "addon",
-      "isNew": true,
+      "featured": true,
       "downloads": [
         {
           "label": "&gt; Download",
           "url": "Downloads/AF_UI V1.0.mcpack",
-          "status": "completed",
-          "version": "V1.0",
-          "download": true
+          "version": "V1.0"
         }
       ]
     },
     {
+      "id": "ycc-very-easy",
       "title": "YCC【Very Easy】",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -60,7 +62,7 @@
       "descKey": "work.addon01.desc",
       "tags": ["ADDON", "FLASHINESS"],
       "category": "addon",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -70,6 +72,7 @@
       ]
     },
     {
+      "id": "ycc-easy",
       "title": "YCC【Easy】",
       "image": "Images/YCC_FACE.png",
       "imageClass": "pixel-icon",
@@ -77,18 +80,17 @@
       "descKey": "work.addon02.desc",
       "tags": ["ADDON", "FLASHINESS"],
       "category": "addon",
-      "isNew": true,
+      "featured": true,
       "downloads": [
         {
           "label": "&gt; Download",
           "url": "Downloads/Yellow Calmness Shining V4.0b1.mcaddon",
-          "status": "completed",
-          "version": "V4.1b1",
-          "download": true
+          "version": "V4.1b1"
         }
       ]
     },
     {
+      "id": "ycc-hard",
       "title": "YCC【Hard】",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -96,7 +98,7 @@
       "descKey": "work.addon03.desc",
       "tags": ["ADDON", "INFLATION"],
       "category": "addon",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -106,6 +108,7 @@
       ]
     },
     {
+      "id": "ycc-very-hard",
       "title": "YCC【Very Hard】",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -113,7 +116,7 @@
       "descKey": "work.addon04.desc",
       "tags": ["ADDON", "INFLATION"],
       "category": "addon",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -123,6 +126,7 @@
       ]
     },
     {
+      "id": "ycw",
       "title": "YCW",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -130,7 +134,7 @@
       "descKey": "work.addon05.desc",
       "tags": ["ADDON", "INFLATION"],
       "category": "addon",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -140,6 +144,7 @@
       ]
     },
     {
+      "id": "vheltar-ephonixm",
       "title": "Vheltar Ephonixm",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -147,7 +152,7 @@
       "descKey": "work.addon06.desc",
       "tags": ["ADDON", "INFLATION"],
       "category": "addon",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Progress",
@@ -157,6 +162,7 @@
       ]
     },
     {
+      "id": "merge-illusion",
       "title": "MergeIllusion",
       "image": "Images/MergeIllusion.png",
       "imageClass": "pixel-icon",
@@ -164,7 +170,7 @@
       "descKey": "work.game02.desc",
       "tags": ["GAME", "PHONE", "UNITY"],
       "category": "game",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Private",
@@ -174,6 +180,7 @@
       ]
     },
     {
+      "id": "af-unicoder",
       "title": "AFUniCoder",
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
@@ -181,7 +188,7 @@
       "descKey": "work.tool02.desc",
       "tags": ["TOOL", "WINDOWS"],
       "category": "tool",
-      "isNew": false,
+      "featured": false,
       "downloads": [
         {
           "label": "&gt; Private",

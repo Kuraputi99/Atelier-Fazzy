@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- どの階層のURLで表示されても画像やCSSが読めるように、サイトの根元を基準にする(根元のパスは build.js が置き換え) -->
+  <base href="{{BASE_PATH}}">
+  <title>Atelier Fazzy | 404 Not Found</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="apple-touch-icon" href="Images/apple-touch-icon.png">
+  <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+
+<body data-root="">
+  <div class="frame">
+
+    <!-- ヘッダー部分 -->
+    <header class="site-header">
+      <a href="index.html" class="logo">ATELIER FAZZY</a>
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-menu" id="site-menu">
+        <nav class="nav">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="works.html">WORKS</a>
+        </nav>
+        <div class="lang-toggle">
+          <button class="lang-btn" data-lang="en">ENGLISH</button>
+          <button class="lang-btn is-active" data-lang="ja">日本語</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- メイン セクション -->
+    <section class="not-found">
+      <div class="hero-dots">
+        <span class="dot dot-plain"></span>
+        <span class="dot dot-accent"></span>
+        <span class="dot dot-plain"></span>
+      </div>
+      <p class="not-found-code">404</p>
+      <p data-lang-only="ja">ページが見つかりませんでした</p>
+      <p data-lang-only="en">Page not found</p>
+      <a href="index.html" class="btn-pixel">
+        <span data-lang-only="ja">&gt; ホームへもどる</span>
+        <span data-lang-only="en">&gt; Back to Home</span>
+      </a>
+    </section>
+
+    <!-- フッター部分 -->
+    <footer class="site-footer">
+      <a href="terms.html" class="footer-link" data-i18n="footer.terms">footer.terms</a>
+      <span>(C) 2026 ATELIER FAZZY</span>
+    </footer>
+
+  </div>
+
+  <!-- スクリプト読み込み(common.js を最初に) -->
+  <script src="JavaScript/common.js"></script>
+  <script src="JavaScript/lang.js"></script>
+  <script src="JavaScript/menu.js"></script>
+  <script src="JavaScript/like.js"></script>
+</body>
+
+</html>

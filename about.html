@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atelier Fazzy | About</title>
-  <meta name="description" content="Atelier Fazzy - About">
+  <meta name="description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="apple-touch-icon" href="Images/apple-touch-icon.png">
   <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- SNSで共有された時のカード表示(OGP)。URLの先頭部分は build.js が site.config.json の値に置き換える -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atelier Fazzy">
+  <meta property="og:title" content="Atelier Fazzy | About">
+  <meta property="og:description" content="Kuraputi と Towaly の2人で、ゲーム・ツール・統合版Minecraftのアドオンを制作・配布しているオンライングループです。">
+  <meta property="og:url" content="{{SITE_URL}}about.html">
+  <meta property="og:image" content="{{SITE_URL}}Images/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body data-root="">
   <div class="frame">
 
     <!-- ヘッダー部分 -->
     <header class="site-header">
       <a href="index.html" class="logo">ATELIER FAZZY</a>
-      <div class="header-right">
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-menu" id="site-menu">
         <nav class="nav">
           <a href="index.html">HOME</a>
           <a href="about.html" class="nav-active">ABOUT</a>
@@ -31,22 +45,22 @@
     <!-- メイン セクション -->
     <section class="page-heading">
       <h1>&gt; ABOUT</h1>
-      <p data-i18n="about.page.sub">about_subtext</p>
+      <p data-i18n="about.page.sub">about.page.sub</p>
     </section>
 
     <!-- ボディ セクション -->
     <section class="about-body">
-      <p data-i18n="about.p1">about_text_p1</p>
-      <p data-i18n="about.p2">about_text_p2</p>
-      <p data-i18n="about.p3">about_text_p3</p>
+      <p data-i18n="about.p1">about.p1</p>
+      <p data-i18n="about.p2">about.p2</p>
+      <p data-i18n="about.p3">about.p3</p>
 
       <!-- プロフ部分(Kuraputi) -->
       <div class="profile-list">
         <div class="profile-card">
           <img src="Images/Kuraputi.jpg" alt="Kuraputi" class="profile-img">
           <div class="profile-info">
-            <h3 class="profile-name">Kuraputi</h3>
-            <p data-i18n="about.kuraputi.bio">bio_kuraputi</p>
+            <h2 class="profile-name">Kuraputi</h2>
+            <p data-i18n="about.kuraputi.bio">about.kuraputi.bio</p>
             <div class="profile-btns">
               <a href="https://youtube.com/@kuraputi?si=IuIl0CshdO0MC-f7" class="btn-small" target="_blank" rel="noopener">YouTube</a>
               <a href="https://x.com/kuraputi_ch9" class="btn-small" target="_blank" rel="noopener">X</a>
@@ -59,8 +73,8 @@
         <div class="profile-card">
           <img src="Images/Towaly.png" alt="Towaly" class="profile-img">
           <div class="profile-info">
-            <h3 class="profile-name">Towaly</h3>
-            <p data-i18n="about.towaly.bio">bio_towaly</p>
+            <h2 class="profile-name">Towaly</h2>
+            <p data-i18n="about.towaly.bio">about.towaly.bio</p>
           </div>
         </div>
       </div>
@@ -68,13 +82,17 @@
 
     <!-- フッター部分 -->
     <footer class="site-footer">
-      (C) 2026 ATELIER FAZZY
+      <a href="terms.html" class="footer-link" data-i18n="footer.terms">footer.terms</a>
+      <span>(C) 2026 ATELIER FAZZY</span>
     </footer>
 
   </div>
 
-  <!-- スクリプト読み込み -->
+  <!-- スクリプト読み込み(common.js を最初に) -->
+  <script src="JavaScript/common.js"></script>
   <script src="JavaScript/lang.js"></script>
+  <script src="JavaScript/menu.js"></script>
+  <script src="JavaScript/like.js"></script>
 </body>
 
-</html>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+
+<!-- 作品詳細ページのひな形。build.js が works_data.json の作品ごとに works/作品ID.html を作る -->
+<!-- {{...}} の部分が作品ごとの内容に置き換わる -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} | Atelier Fazzy</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="icon" type="image/png" href="../Images/favicon.png">
+  <link rel="apple-touch-icon" href="../Images/apple-touch-icon.png">
+  <link rel="stylesheet" href="../CSS/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Atelier Fazzy">
+  <meta property="og:title" content="{{TITLE}} | Atelier Fazzy">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta name="twitter:card" content="{{TWITTER_CARD}}">
+</head>
+
+<body data-root="../">
+  <div class="frame">
+
+    <!-- ヘッダー部分 -->
+    <header class="site-header">
+      <a href="../index.html" class="logo">ATELIER FAZZY</a>
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-menu" id="site-menu">
+        <nav class="nav">
+          <a href="../index.html">HOME</a>
+          <a href="../about.html">ABOUT</a>
+          <a href="../works.html" class="nav-active">WORKS</a>
+        </nav>
+        <div class="lang-toggle">
+          <button class="lang-btn" data-lang="en">ENGLISH</button>
+          <button class="lang-btn is-active" data-lang="ja">日本語</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 作品の内容 -->
+{{CONTENT}}
+
+    <!-- フッター部分 -->
+    <footer class="site-footer">
+      <a href="../terms.html" class="footer-link" data-i18n="footer.terms">footer.terms</a>
+      <span>(C) 2026 ATELIER FAZZY</span>
+    </footer>
+
+  </div>
+
+  <!-- スクリプト読み込み(common.js を最初に) -->
+  <script src="../JavaScript/common.js"></script>
+  <script src="../JavaScript/lang.js"></script>
+  <script src="../JavaScript/menu.js"></script>
+  <script src="../JavaScript/like.js"></script>
+</body>
+
+</html>

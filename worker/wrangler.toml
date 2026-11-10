@@ -1,0 +1,17 @@
+# Cloudflare Workers の設定(いいね機能の API)
+# 手順は SETUP.md の「いいね機能」を参照
+name = "atelier-fazzy-likes"
+main = "like-worker.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# いいねを受け付けるサイト(最後の / は不要)
+ALLOWED_ORIGIN = "https://kuraputi99.github.io"
+# 作品一覧(ここに無い作品IDへのいいねは受け付けない)
+WORKS_DATA_URL = "https://kuraputi99.github.io/Atelier-Fazzy/Json/works_data.json"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "atelier-fazzy-likes"
+# `npx wrangler d1 create atelier-fazzy-likes` を実行すると表示される ID に書き換える
+database_id = "ここにデータベースIDを貼る"
