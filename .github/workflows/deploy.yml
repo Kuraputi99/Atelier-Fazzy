@@ -1,6 +1,6 @@
 # サイトを組み立てて GitHub Pages に公開する
 # ・main に push した時
-# ・毎日1回(YouTube の新着動画とダウンロード数を取り直すため)
+# ・毎日1回(YouTube の新着動画を取り直すため)
 # ・Actions 画面の「Run workflow」ボタンを押した時
 name: Build and deploy site
 
@@ -31,8 +31,6 @@ jobs:
           node-version: 22
       - name: Build site
         run: node scripts/build.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # ダウンロード数の取得に使う(自動で用意される)
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:

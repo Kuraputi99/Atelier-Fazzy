@@ -824,7 +824,7 @@ a.news-item:hover .news-text {
   margin-bottom: 14px;
 }
 
-/*-ダウンロード数といいね-*/
+/*-いいねボタンの行-*/
 .card-meta {
   display: flex;
   align-items: center;
@@ -834,12 +834,7 @@ a.news-item:hover .news-text {
 }
 
 .card-meta:not(:has(> :not([hidden]))) {
-  display: none; /*-DL数もいいねも無い時は行ごと消す-*/
-}
-
-.dl-count {
-  font-size: 13px;
-  color: var(--text-muted);
+  display: none; /*-いいねボタンが隠れている時は行ごと消す-*/
 }
 
 .like-btn {

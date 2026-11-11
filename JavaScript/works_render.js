@@ -1,7 +1,7 @@
 /*-作品データ(works_data.json)から作品カードを作って表示する-*/
 /*-ホームでは「おすすめ作品(featured: true)」だけ、作品一覧ページでは全作品をカテゴリ絞り込み付きで表示-*/
 /*-説明文の翻訳は lang.js から届く 'af:langchange' イベントで受け取る-*/
-/*-ダウンロード数は build.js が作る stats_data.json、いいねは like.js が担当-*/
+/*-いいねボタンの数の表示と押した時の処理は like.js が担当-*/
 document.addEventListener('DOMContentLoaded', function () {
   const featuredList = document.getElementById('featured-works'); // ホーム用
   const allList = document.getElementById('all-works');           // 作品一覧ページ用
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!featuredList && !allList) return;
 
   let items = null;
-  let stats = {};
   let dict = null;
   let currentLang = null;
   let currentFilter = 'all';
@@ -84,18 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
     return dlList;
   }
 
-  /*-ダウンロード数といいねボタンの行-*/
+  /*-いいねボタンの行-*/
   function buildMeta(item) {
     const meta = document.createElement('div');
     meta.className = 'card-meta';
-
-    const itemStats = stats[item.id];
-    if (itemStats && typeof itemStats.downloads === 'number') {
-      const dl = document.createElement('span');
-      dl.className = 'dl-count';
-      dl.textContent = 'DL ' + itemStats.downloads.toLocaleString();
-      meta.appendChild(dl);
-    }
 
     const like = document.createElement('button');
     like.type = 'button';
@@ -190,13 +181,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /*-作品データを読み込む(非同期)-*/
-  /*-ダウンロード数は無くても表示できるので、読めなければ空にする-*/
-  const statsLoad = AF.loadJSON('Json/stats_data.json').catch(function () { return {}; });
-
-  Promise.all([AF.loadJSON('Json/works_data.json'), statsLoad])
-    .then(function (results) {
-      items = results[0].items;
-      stats = results[1];
+  AF.loadJSON('Json/works_data.json')
+    .then(function (json) {
+      items = json.items;
       render();
     })
     .catch(function (err) {

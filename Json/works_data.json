@@ -7,7 +7,10 @@
       "imageClass": "pixel-icon",
       "alt": "AFLib_DX12",
       "descKey": "work.tool01.desc",
-      "tags": ["TOOL", "C++"],
+      "tags": [
+        "TOOL",
+        "C++"
+      ],
       "category": "tool",
       "featured": true,
       "downloads": [
@@ -25,7 +28,10 @@
       "imageClass": "pixel-icon",
       "alt": "Phantom Changed",
       "descKey": "work.game01.desc",
-      "tags": ["GAME", "WINDOWS"],
+      "tags": [
+        "GAME",
+        "WINDOWS"
+      ],
       "category": "game",
       "featured": false,
       "downloads": [
@@ -42,7 +48,9 @@
       "image": "Images/AF_UI.png",
       "alt": "AF_UI",
       "descKey": "work.addon07.desc",
-      "tags": ["RESOURCE"],
+      "tags": [
+        "RESOURCE"
+      ],
       "category": "addon",
       "featured": true,
       "downloads": [
@@ -60,7 +68,10 @@
       "imageClass": "pixel-icon",
       "alt": "YCCVE",
       "descKey": "work.addon01.desc",
-      "tags": ["ADDON", "FLASHINESS"],
+      "tags": [
+        "ADDON",
+        "FLASHINESS"
+      ],
       "category": "addon",
       "featured": false,
       "downloads": [
@@ -78,7 +89,10 @@
       "imageClass": "pixel-icon",
       "alt": "YCCE",
       "descKey": "work.addon02.desc",
-      "tags": ["ADDON", "FLASHINESS"],
+      "tags": [
+        "ADDON",
+        "FLASHINESS"
+      ],
       "category": "addon",
       "featured": true,
       "downloads": [
@@ -96,7 +110,10 @@
       "imageClass": "pixel-icon",
       "alt": "YCCH",
       "descKey": "work.addon03.desc",
-      "tags": ["ADDON", "INFLATION"],
+      "tags": [
+        "ADDON",
+        "INFLATION"
+      ],
       "category": "addon",
       "featured": false,
       "downloads": [
@@ -114,7 +131,10 @@
       "imageClass": "pixel-icon",
       "alt": "YCCVH",
       "descKey": "work.addon04.desc",
-      "tags": ["ADDON", "INFLATION"],
+      "tags": [
+        "ADDON",
+        "INFLATION"
+      ],
       "category": "addon",
       "featured": false,
       "downloads": [
@@ -132,7 +152,10 @@
       "imageClass": "pixel-icon",
       "alt": "YCW",
       "descKey": "work.addon05.desc",
-      "tags": ["ADDON", "INFLATION"],
+      "tags": [
+        "ADDON",
+        "INFLATION"
+      ],
       "category": "addon",
       "featured": false,
       "downloads": [
@@ -150,7 +173,10 @@
       "imageClass": "pixel-icon",
       "alt": "Vheltar Ephonixm",
       "descKey": "work.addon06.desc",
-      "tags": ["ADDON", "INFLATION"],
+      "tags": [
+        "ADDON",
+        "INFLATION"
+      ],
       "category": "addon",
       "featured": false,
       "downloads": [
@@ -168,7 +194,11 @@
       "imageClass": "pixel-icon",
       "alt": "MergeIllusion",
       "descKey": "work.game02.desc",
-      "tags": ["GAME", "PHONE", "UNITY"],
+      "tags": [
+        "GAME",
+        "PHONE",
+        "UNITY"
+      ],
       "category": "game",
       "featured": false,
       "downloads": [
@@ -186,7 +216,10 @@
       "imageClass": "pixel-icon",
       "alt": "AFUniCoder",
       "descKey": "work.tool02.desc",
-      "tags": ["TOOL", "WINDOWS"],
+      "tags": [
+        "TOOL",
+        "WINDOWS"
+      ],
       "category": "tool",
       "featured": false,
       "downloads": [
@@ -195,7 +228,32 @@
           "url": "#",
           "version": "v3.0.0"
         }
-      ]
+      ],
+      "detail": {
+        "summary": {
+          "ja": "1段落目の説明\n2段落目の説明",
+          "en": "First paragraph\nSecond paragraph"
+        },
+        "screenshots": [
+          "Images/ycs_ss1.png",
+          "Images/ycs_ss2.png"
+        ],
+        "youtubeId": "動画URLの v= のうしろの文字",
+        "requirements": {
+          "ja": "Minecraft 統合版 1.21 以降",
+          "en": "Minecraft Bedrock 1.21 or later"
+        },
+        "changelog": [
+          {
+            "version": "V4.1b1",
+            "date": "2026-11-01",
+            "text": {
+              "ja": "不具合を修正",
+              "en": "Bug fixes"
+            }
+          }
+        ]
+      }
     }
   ]
 }
