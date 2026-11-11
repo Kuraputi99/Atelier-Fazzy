@@ -218,33 +218,23 @@ a.news-item:hover .news-text {
   color: var(--text-muted);
 }
 
-/*-SNS(YouTube と X を横に並べる)-*/
-.sns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+/*-YouTube の最新動画(広い画面では3つ横に並べる)-*/
+.youtube {
   padding: 16px 24px 24px;
   background: var(--bg);
 }
 
-.sns-title {
-  font-size: 14px;
-  letter-spacing: 1px;
-  margin: 0 0 12px;
-  color: var(--text-secondary);
-}
-
 .video-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 16px;
 }
 
 .video-card {
   display: flex;
-  gap: 12px;
-  align-items: center;
+  flex-direction: column;
+  gap: 8px;
   border: 2px solid var(--border-stronger);
   background: var(--surface-2);
   box-shadow: 3px 3px 0 var(--border-strong);
@@ -252,10 +242,9 @@ a.news-item:hover .news-text {
 }
 
 .video-card img {
-  width: 120px;
+  width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  flex-shrink: 0;
   border: 2px solid var(--border-stronger);
 }
 
@@ -264,23 +253,32 @@ a.news-item:hover .news-text {
   line-height: 1.4;
 }
 
-.sns-links {
+.video-card:hover .video-title {
+  color: var(--accent-light);
+}
+
+.youtube-links {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.x-timeline {
-  min-height: 120px;
-  border: 2px solid var(--border-stronger);
-  background: var(--surface);
-  padding: 8px;
-  font-size: 14px;
-}
-
-@media (max-width: 760px) {
-  .sns {
+/*-狭い画面では、サムネイルを左・タイトルを右にして縦に並べる-*/
+@media (max-width: 640px) {
+  .video-list {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .video-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .video-card img {
+    width: 120px;
+    flex-shrink: 0;
   }
 }
 

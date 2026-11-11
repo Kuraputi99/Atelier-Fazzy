@@ -1,9 +1,8 @@
-/*-ホームの「おしらせ」と「SNS」(YouTube の最新動画・X のポスト)を表示する-*/
+/*-ホームの「おしらせ」と「YouTube の最新動画」を表示する-*/
 /*-youtube_data.json は build.js が GitHub Actions 上で自動で作る(手元で開いた時は無いので、リンクだけ表示)-*/
 document.addEventListener('DOMContentLoaded', function () {
   const newsList = document.getElementById('news-list');
   const videoList = document.getElementById('video-list');
-  const xTimeline = document.getElementById('x-timeline');
   const NEWS_LIMIT = 5;
   const VIDEO_LIMIT = 3;
 
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!videoList || !videos || !lang) return;
     videoList.innerHTML = '';
     if (!videos.length) {
-      videoList.innerHTML = '<p class="empty-text">' + t('sns.youtube.empty') + '</p>';
+      videoList.innerHTML = '<p class="empty-text">' + t('youtube.empty') + '</p>';
       return;
     }
     videos.slice(0, VIDEO_LIMIT).forEach(function (video) {
@@ -85,29 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (postsLink) postsLink.href = channelUrl.replace(/\/+$/, '') + '/posts';
   }
 
-  /* ---------- X ---------- */
-
-  /*-X 公式の埋め込み(タイムライン)を読み込む。広告ブロッカー等で読めない時は、リンクだけが残る-*/
-  function setupXTimeline(config) {
-    const username = config.x && config.x.username;
-    if (!xTimeline || !username) return;
-
-    const link = document.createElement('a');
-    link.className = 'twitter-timeline';
-    link.href = 'https://twitter.com/' + encodeURIComponent(username);
-    link.setAttribute('data-height', '480');
-    link.setAttribute('data-chrome', 'noheader nofooter transparent');
-    link.setAttribute('data-i18n', 'sns.x.fallback');
-    link.innerHTML = t('sns.x.fallback') || ('@' + username);
-    xTimeline.appendChild(link);
-
-    const script = document.createElement('script');
-    script.src = 'https://platform.twitter.com/widgets.js';
-    script.async = true;
-    script.charset = 'utf-8';
-    document.body.appendChild(script);
-  }
-
   /* ---------- 読み込み ---------- */
 
   document.addEventListener('af:langchange', function (e) {
@@ -126,8 +102,5 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(function () { videos = []; })
     .then(renderVideos);
 
-  AF.config.then(function (config) {
-    setupYouTubeLinks(config);
-    setupXTimeline(config);
-  });
+  AF.config.then(setupYouTubeLinks);
 });
