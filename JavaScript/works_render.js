@@ -1,6 +1,6 @@
 /*-作品データ(works_data.json)から作品カードを作って表示する-*/
 /*-ホームでは「おすすめ作品(featured: true)」だけ、作品一覧ページでは全作品をカテゴリ絞り込み付きで表示-*/
-/*-説明文の翻訳は lang.js から届く 'af:langchange' イベントで受け取る-*/
+/*-説明文(work.作品ID.desc)などの文章は translate_data.json にあり、言語が変わると lang.js から 'af:langchange' が届く-*/
 /*-いいねボタンの数の表示と押した時の処理は like.js が担当-*/
 document.addEventListener('DOMContentLoaded', function () {
   const featuredList = document.getElementById('featured-works'); // ホーム用
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.className = 'download-btn is-disabled';
       btn.setAttribute('aria-disabled', 'true');
     }
-    btn.innerHTML = dl.label;
+    btn.innerHTML = AF.t('download.' + dl.type) || dl.type;
 
     const version = document.createElement('span');
     version.className = 'version-badge';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     titleLink.textContent = item.title;
     title.appendChild(titleLink);
     const desc = document.createElement('p');
-    desc.innerHTML = dict[currentLang][item.descKey] || '';
+    desc.innerHTML = AF.t('work.' + item.id + '.desc') || '';
 
     body.appendChild(title);
     body.appendChild(desc);

@@ -9,10 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
   let news = null;
   let videos = null;
   let lang = null;
-  let dict = null;
 
   function t(key) {
-    return (dict && dict[lang] && dict[lang][key]) || '';
+    return AF.t(key) || '';
   }
 
   /* ---------- おしらせ ---------- */
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const text = document.createElement('span');
       text.className = 'news-text';
-      text.textContent = item.text[lang] || item.text.ja || '';
+      text.innerHTML = t('news.' + item.id);
 
       row.appendChild(date);
       row.appendChild(text);
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener('af:langchange', function (e) {
     lang = e.detail.lang;
-    dict = e.detail.dict;
     renderNews();
     renderVideos();
   });

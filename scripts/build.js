@@ -49,19 +49,22 @@ function toPlainText(html) {
     .replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
 }
 
-/*-改行で区切った文章を <p> に-*/
-function paragraphs(text) {
-  return String(text || '').split(/\n+/).filter(Boolean)
-    .map(function (line) { return '<p>' + escapeHTML(line) + '</p>'; }).join('');
+/*-改行で区切った文章を、段落(<p>)や箇条書き(<li>)の HTML にする(lang.js の format と同じ)-*/
+function format(text, type) {
+  if (type !== 'paragraphs' && type !== 'list') return text;
+  const tag = type === 'list' ? 'li' : 'p';
+  return String(text).split('\n').filter(Boolean).map(function (line) {
+    return '<' + tag + '>' + line + '</' + tag + '>';
+  }).join('');
 }
 
-/*-日本語と英語を書き分けたブロック({ ja, en } を受け取る)-*/
-function langBlocks(value, render) {
-  if (!value) return '';
-  return ['ja', 'en'].map(function (lang) {
-    const text = value[lang] !== undefined ? value[lang] : value.ja;
-    return '<div data-lang-only="' + lang + '">' + render(text) + '</div>';
-  }).join('');
+/*-翻訳キーの文章を入れた要素を作る。最初は日本語で書いておき、言語の切り替えは lang.js が行う-*/
+/*-そのキーが translate_data.json に無ければ空文字を返す(=その項目は表示しない)-*/
+function textElement(dict, key, tag, attrs, type) {
+  const text = dict.ja && dict.ja[key];
+  if (text === undefined) return '';
+  return '<' + tag + (attrs ? ' ' + attrs : '') + ' data-i18n="' + escapeHTML(key) + '"' +
+    (type ? ' data-i18n-format="' + type + '"' : '') + '>' + format(text, type) + '</' + tag + '>';
 }
 
 /* ---------- 1. コピー ---------- */
@@ -121,22 +124,6 @@ async function fetchYouTube(config) {
 
 /* ---------- 3. 作品詳細ページ ---------- */
 
-/*-アドオンの導入方法(作品ごとに detail.install が無い時に使う共通の説明)-*/
-const DEFAULT_INSTALL = {
-  addon: {
-    ja: [
-      'ダウンロードしたファイル（.mcaddon / .mcpack）を開きます。Minecraft が起動して、自動で取り込まれます。',
-      'ワールドの設定を開き、「ビヘイビアパック」や「リソースパック」から作品を有効にします。',
-      'ワールドに入って遊びます。作品によっては「実験的な機能」の設定が必要な場合があります。'
-    ],
-    en: [
-      'Open the downloaded file (.mcaddon / .mcpack). Minecraft will start and import it automatically.',
-      'Open your world settings and enable the work under "Behavior Packs" or "Resource Packs".',
-      'Enter the world and play. Some works may require "Experiments" settings.'
-    ]
-  }
-};
-
 function section(i18nKey, inner) {
   if (!inner) return '';
   return '      <section class="work-section">\n' +
@@ -145,11 +132,11 @@ function section(i18nKey, inner) {
     '      </section>\n';
 }
 
-function renderDownloads(item) {
+function renderDownloads(item, dict) {
   const rows = (item.downloads || []).map(function (dl) {
     const btn = dl.url !== '#'
-      ? '<a class="download-btn" href="' + escapeHTML(dl.url.startsWith('http') ? dl.url : '../' + dl.url) + '" target="_blank" rel="noopener">' + dl.label + '</a>'
-      : '<span class="download-btn is-disabled" aria-disabled="true">' + dl.label + '</span>';
+      ? textElement(dict, 'download.' + dl.type, 'a', 'class="download-btn" href="' + escapeHTML(dl.url.startsWith('http') ? dl.url : '../' + dl.url) + '" target="_blank" rel="noopener"')
+      : textElement(dict, 'download.' + dl.type, 'span', 'class="download-btn is-disabled" aria-disabled="true"');
     return '<div class="download-row">' + btn + '<span class="version-badge">' + escapeHTML(dl.version || '') + '</span></div>';
   }).join('');
   return rows ? '<div class="download-list">' + rows + '</div>' : '';
@@ -157,7 +144,7 @@ function renderDownloads(item) {
 
 function renderWorkContent(item, dict) {
   const detail = item.detail || {};
-  const descJa = (dict.ja && dict.ja[item.descKey]) || '';
+  const key = 'work.' + item.id + '.';
   const tags = (item.tags || []).map(function (t) { return '<span class="tag">' + escapeHTML(t) + '</span>'; }).join('');
 
   const screenshots = (detail.screenshots || []).map(function (src) {
@@ -168,15 +155,14 @@ function renderWorkContent(item, dict) {
     ? '<div class="work-video"><iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(detail.youtubeId) + '" title="YouTube video" allowfullscreen loading="lazy"></iframe></div>'
     : '';
 
-  const install = detail.install || DEFAULT_INSTALL[item.category];
-  const installHTML = install ? langBlocks(install, function (steps) {
-    return '<ol class="work-steps">' + steps.map(function (s) { return '<li>' + escapeHTML(s) + '</li>'; }).join('') + '</ol>';
-  }) : '';
+  // 導入方法：作品ごとの文章(work.作品ID.install)が無ければ、カテゴリ共通の文章(detail.install.カテゴリ)を使う
+  const installKey = (dict.ja && dict.ja[key + 'install'] !== undefined) ? key + 'install' : 'detail.install.' + item.category;
+  const installHTML = textElement(dict, installKey, 'ol', 'class="work-steps"', 'list');
 
   const changelog = (detail.changelog || []).map(function (c) {
     return '<li><span class="changelog-version">' + escapeHTML(c.version) + '</span>' +
       '<time class="changelog-date">' + escapeHTML(c.date || '') + '</time>' +
-      langBlocks(c.text, paragraphs) + '</li>';
+      textElement(dict, key + 'changelog.' + c.version, 'div', '', 'paragraphs') + '</li>';
   }).join('');
 
   return '    <section class="work-detail">\n' +
@@ -185,16 +171,16 @@ function renderWorkContent(item, dict) {
     '        <div class="card-thumb work-thumb"><img src="../' + escapeHTML(item.image) + '" alt="' + escapeHTML(item.alt || item.title) + '"' + (item.imageClass ? ' class="' + escapeHTML(item.imageClass) + '"' : '') + '></div>\n' +
     '        <div class="work-info">\n' +
     '          <h1 class="work-title">' + escapeHTML(item.title) + '</h1>\n' +
-    '          <p class="work-desc" data-i18n="' + escapeHTML(item.descKey) + '">' + descJa + '</p>\n' +
+    '          ' + textElement(dict, key + 'desc', 'p', 'class="work-desc"') + '\n' +
     '          <div class="tag-row">' + tags + '</div>\n' +
     '          <div class="card-meta"><button type="button" class="like-btn" data-like-id="' + escapeHTML(item.id) + '" hidden></button></div>\n' +
     '        </div>\n' +
     '      </div>\n' +
-    section('detail.downloads', renderDownloads(item)) +
-    section('detail.about', langBlocks(detail.summary, paragraphs)) +
+    section('detail.downloads', renderDownloads(item, dict)) +
+    section('detail.about', textElement(dict, key + 'summary', 'div', '', 'paragraphs')) +
     section('detail.screenshots', screenshots && '<div class="work-screenshots">' + screenshots + '</div>') +
     section('detail.video', video) +
-    section('detail.requirements', langBlocks(detail.requirements, paragraphs)) +
+    section('detail.requirements', textElement(dict, key + 'requirements', 'div', '', 'paragraphs')) +
     section('detail.install', installHTML) +
     section('detail.changelog', changelog && '<ul class="work-changelog">' + changelog + '</ul>') +
     '    </section>';
@@ -208,7 +194,7 @@ function buildWorkPages(items, dict, siteUrl) {
     }
     const values = {
       TITLE: escapeHTML(item.title),
-      DESCRIPTION: escapeHTML(toPlainText(dict.ja && dict.ja[item.descKey])),
+      DESCRIPTION: escapeHTML(toPlainText(dict.ja && dict.ja['work.' + item.id + '.desc'])),
       PAGE_URL: siteUrl + 'works/' + item.id + '.html',
       OG_IMAGE: siteUrl + (item.ogImage || 'Images/ogp.png'),
       TWITTER_CARD: 'summary_large_image',

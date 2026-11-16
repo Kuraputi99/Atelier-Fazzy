@@ -6,16 +6,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "AFLib_DX12",
-      "descKey": "work.tool01.desc",
-      "tags": [
-        "TOOL",
-        "C++"
-      ],
+      "tags": ["TOOL", "C++"],
       "category": "tool",
       "featured": true,
       "downloads": [
         {
-          "label": "&gt; Download",
+          "type": "download",
           "url": "https://github.com/xxx/AFLib_DX12/releases",
           "version": "v0.1.0"
         }
@@ -27,16 +23,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "Phantom Changed",
-      "descKey": "work.game01.desc",
-      "tags": [
-        "GAME",
-        "WINDOWS"
-      ],
+      "tags": ["GAME", "WINDOWS"],
       "category": "game",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Progress",
+          "type": "progress",
           "url": "#",
           "version": "v0.0.1"
         }
@@ -47,15 +39,12 @@
       "title": "AF_UI",
       "image": "Images/AF_UI.png",
       "alt": "AF_UI",
-      "descKey": "work.addon07.desc",
-      "tags": [
-        "RESOURCE"
-      ],
+      "tags": ["RESOURCE"],
       "category": "addon",
       "featured": true,
       "downloads": [
         {
-          "label": "&gt; Download",
+          "type": "download",
           "url": "Downloads/AF_UI V1.0.mcpack",
           "version": "V1.0"
         }
@@ -67,16 +56,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "YCCVE",
-      "descKey": "work.addon01.desc",
-      "tags": [
-        "ADDON",
-        "FLASHINESS"
-      ],
+      "tags": ["ADDON", "FLASHINESS"],
       "category": "addon",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Progress",
+          "type": "progress",
           "url": "#",
           "version": "V3.0"
         }
@@ -88,16 +73,12 @@
       "image": "Images/YCC_FACE.png",
       "imageClass": "pixel-icon",
       "alt": "YCCE",
-      "descKey": "work.addon02.desc",
-      "tags": [
-        "ADDON",
-        "FLASHINESS"
-      ],
+      "tags": ["ADDON", "FLASHINESS"],
       "category": "addon",
       "featured": true,
       "downloads": [
         {
-          "label": "&gt; Download",
+          "type": "download",
           "url": "Downloads/Yellow Calmness Shining V4.0b1.mcaddon",
           "version": "V4.1b1"
         }
@@ -109,16 +90,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "YCCH",
-      "descKey": "work.addon03.desc",
-      "tags": [
-        "ADDON",
-        "INFLATION"
-      ],
+      "tags": ["ADDON", "INFLATION"],
       "category": "addon",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Progress",
+          "type": "progress",
           "url": "#",
           "version": "V3.0"
         }
@@ -130,16 +107,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "YCCVH",
-      "descKey": "work.addon04.desc",
-      "tags": [
-        "ADDON",
-        "INFLATION"
-      ],
+      "tags": ["ADDON", "INFLATION"],
       "category": "addon",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Progress",
+          "type": "progress",
           "url": "#",
           "version": "V3.0"
         }
@@ -151,16 +124,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "YCW",
-      "descKey": "work.addon05.desc",
-      "tags": [
-        "ADDON",
-        "INFLATION"
-      ],
+      "tags": ["ADDON", "INFLATION"],
       "category": "addon",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Progress",
+          "type": "progress",
           "url": "#",
           "version": "V3.0"
         }
@@ -172,16 +141,12 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "Vheltar Ephonixm",
-      "descKey": "work.addon06.desc",
-      "tags": [
-        "ADDON",
-        "INFLATION"
-      ],
+      "tags": ["ADDON", "INFLATION"],
       "category": "addon",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Progress",
+          "type": "progress",
           "url": "#",
           "version": "v0.8"
         }
@@ -193,21 +158,23 @@
       "image": "Images/MergeIllusion.png",
       "imageClass": "pixel-icon",
       "alt": "MergeIllusion",
-      "descKey": "work.game02.desc",
-      "tags": [
-        "GAME",
-        "PHONE",
-        "UNITY"
-      ],
+      "tags": ["GAME", "PHONE", "UNITY"],
       "category": "game",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Private",
+          "type": "private",
           "url": "#",
           "version": "v1.0.1"
         }
-      ]
+      ],
+      "detail": {
+        "screenshots": ["Images/ycs_ss1.png", "Images/ycs_ss2.png"],
+        "youtubeId": "動画URLの v= のうしろの文字",
+        "changelog": [
+          { "version": "V4.1b1", "date": "2026-11-01" }
+        ]
+      }
     },
     {
       "id": "af-unicoder",
@@ -215,43 +182,21 @@
       "image": "Images/NoImage.png",
       "imageClass": "pixel-icon",
       "alt": "AFUniCoder",
-      "descKey": "work.tool02.desc",
-      "tags": [
-        "TOOL",
-        "WINDOWS"
-      ],
+      "tags": ["TOOL", "WINDOWS"],
       "category": "tool",
       "featured": false,
       "downloads": [
         {
-          "label": "&gt; Private",
+          "type": "private",
           "url": "#",
           "version": "v3.0.0"
         }
       ],
       "detail": {
-        "summary": {
-          "ja": "1段落目の説明\n2段落目の説明",
-          "en": "First paragraph\nSecond paragraph"
-        },
-        "screenshots": [
-          "Images/ycs_ss1.png",
-          "Images/ycs_ss2.png"
-        ],
+        "screenshots": ["Images/ycs_ss1.png", "Images/ycs_ss2.png"],
         "youtubeId": "動画URLの v= のうしろの文字",
-        "requirements": {
-          "ja": "Minecraft 統合版 1.21 以降",
-          "en": "Minecraft Bedrock 1.21 or later"
-        },
         "changelog": [
-          {
-            "version": "V4.1b1",
-            "date": "2026-11-01",
-            "text": {
-              "ja": "不具合を修正",
-              "en": "Bug fixes"
-            }
-          }
+          { "version": "V4.1b1", "date": "2026-11-01" }
         ]
       }
     }

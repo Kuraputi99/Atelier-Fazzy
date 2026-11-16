@@ -1,6 +1,7 @@
 /*-翻訳データの読み込みと言語切替を担当-*/
 /*-言語が変わるたびに 'af:langchange' イベントを送り、他のスクリプトに知らせる-*/
-/*-長い文章は data-lang-only="ja" / "en" で言語ごとに書き分けられる(表示の切り替えは style.css)-*/
+/*-文章はすべて Json/translate_data.json に置き、HTML では data-i18n="キー" で指定する-*/
+/*-data-i18n-format="paragraphs" / "list" を付けると、改行(\n)ごとに段落 / 箇条書きにする-*/
 document.addEventListener('DOMContentLoaded', function () {
   const STORAGE_KEY = 'atelier-fazzy-lang';
   const langButtons = document.querySelectorAll('.lang-btn');
@@ -24,15 +25,35 @@ document.addEventListener('DOMContentLoaded', function () {
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { }
   }
 
+  /*-キーから今の言語の文章を取り出す(英語が無いキーは日本語で代わりに表示)-*/
+  function t(key) {
+    if (!dict) return undefined;
+    const text = dict[currentLang] && dict[currentLang][key];
+    return text !== undefined ? text : (dict.ja && dict.ja[key]);
+  }
+
+  /*-改行で区切った文章を、段落(<p>)や箇条書き(<li>)の HTML にする-*/
+  function format(text, type) {
+    if (type !== 'paragraphs' && type !== 'list') return text;
+    const tag = type === 'list' ? 'li' : 'p';
+    return String(text).split('\n').filter(Boolean).map(function (line) {
+      return '<' + tag + '>' + line + '</' + tag + '>';
+    }).join('');
+  }
+
+  // 他のスクリプトからも使えるようにする
+  AF.t = t;
+  AF.format = format;
+
   /*-data-i18n 属性のある要素を、選んだ言語の文章に置き換える-*/
   function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      const text = dict[currentLang][el.getAttribute('data-i18n')];
-      if (text !== undefined) el.innerHTML = text;
+      const text = t(el.getAttribute('data-i18n'));
+      if (text !== undefined) el.innerHTML = format(text, el.getAttribute('data-i18n-format'));
     });
   }
 
-  /*-<html> に今の言語を書き込む(data-lang-only の表示切り替えに使う)-*/
+  /*-<html> に今の言語を書き込む-*/
   function updateDocumentLang() {
     document.documentElement.lang = currentLang;
     document.documentElement.setAttribute('data-lang', currentLang);

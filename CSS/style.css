@@ -49,12 +49,6 @@ button {
   font-family: inherit;
 }
 
-/*-言語ごとに書き分けた文章(data-lang-only)は、選んでいない言語の方を隠す-*/
-html[data-lang="ja"] [data-lang-only="en"],
-html[data-lang="en"] [data-lang-only="ja"] {
-  display: none;
-}
-
 /*-データが無い時の案内文-*/
 .empty-text {
   margin: 0;
