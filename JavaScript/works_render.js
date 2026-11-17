@@ -1,5 +1,5 @@
 /*-作品データ(works_data.json)から作品カードを作って表示する-*/
-/*-ホームでは「おすすめ作品(featured: true)」だけ、作品一覧ページでは全作品をカテゴリ絞り込み付きで表示-*/
+/*-ホームでは「おすすめ作品(featured: true)」だけ、作品一覧ページでは全作品をタグ絞り込み付きで表示-*/
 /*-説明文(work.作品ID.desc)などの文章は translate_data.json にあり、言語が変わると lang.js から 'af:langchange' が届く-*/
 /*-いいねボタンの数の表示と押した時の処理は like.js が担当-*/
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     thumb.href = detailUrl(item);
     const img = document.createElement('img');
     img.src = item.image;
-    img.alt = item.alt || item.title;
-    if (item.imageClass) img.className = item.imageClass;
+    img.alt = item.title;
     thumb.appendChild(img);
     return thumb;
   }
@@ -122,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function buildCard(item) {
     const card = document.createElement('article');
     card.className = 'card';
-    card.setAttribute('data-category', item.category);
     card.appendChild(buildThumb(item));
     card.appendChild(buildBody(item));
     return card;
@@ -140,12 +138,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /*-作品一覧：選択中のカテゴリの作品だけ並べる-*/
+  /*-作品一覧：選択中のタグが付いた作品だけ並べる-*/
   function renderAll() {
     if (!allList) return;
     allList.innerHTML = '';
     const visibleItems = items.filter(function (item) {
-      return currentFilter === 'all' || item.category === currentFilter;
+      return currentFilter === 'all' || (item.tags || []).indexOf(currentFilter) !== -1;
     });
     visibleItems.forEach(function (item) {
       allList.appendChild(buildCard(item));
@@ -163,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- イベント ---------- */
 
-  /*-カテゴリ絞り込みボタン-*/
+  /*-タグ絞り込みボタン(data-filter の値と同じタグを持つ作品を表示)-*/
   filterButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       filterButtons.forEach(function (b) { b.classList.remove('is-active'); });

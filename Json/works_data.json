@@ -4,10 +4,7 @@
       "id": "aflib-dx12",
       "title": "AFLib_DX12",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "AFLib_DX12",
       "tags": ["TOOL", "C++"],
-      "category": "tool",
       "featured": true,
       "downloads": [
         {
@@ -21,10 +18,7 @@
       "id": "phantom-changed",
       "title": "Phantom Changed",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "Phantom Changed",
       "tags": ["GAME", "WINDOWS"],
-      "category": "game",
       "featured": false,
       "downloads": [
         {
@@ -38,9 +32,7 @@
       "id": "af-ui",
       "title": "AF_UI",
       "image": "Images/AF_UI.png",
-      "alt": "AF_UI",
-      "tags": ["RESOURCE"],
-      "category": "addon",
+      "tags": ["ADDON", "RESOURCE"],
       "featured": true,
       "downloads": [
         {
@@ -54,10 +46,7 @@
       "id": "ycc-very-easy",
       "title": "YCC【Very Easy】",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "YCCVE",
       "tags": ["ADDON", "FLASHINESS"],
-      "category": "addon",
       "featured": false,
       "downloads": [
         {
@@ -71,10 +60,7 @@
       "id": "ycc-easy",
       "title": "YCC【Easy】",
       "image": "Images/YCC_FACE.png",
-      "imageClass": "pixel-icon",
-      "alt": "YCCE",
       "tags": ["ADDON", "FLASHINESS"],
-      "category": "addon",
       "featured": true,
       "downloads": [
         {
@@ -88,10 +74,7 @@
       "id": "ycc-hard",
       "title": "YCC【Hard】",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "YCCH",
       "tags": ["ADDON", "INFLATION"],
-      "category": "addon",
       "featured": false,
       "downloads": [
         {
@@ -105,10 +88,7 @@
       "id": "ycc-very-hard",
       "title": "YCC【Very Hard】",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "YCCVH",
       "tags": ["ADDON", "INFLATION"],
-      "category": "addon",
       "featured": false,
       "downloads": [
         {
@@ -122,10 +102,7 @@
       "id": "ycw",
       "title": "YCW",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "YCW",
       "tags": ["ADDON", "INFLATION"],
-      "category": "addon",
       "featured": false,
       "downloads": [
         {
@@ -139,10 +116,7 @@
       "id": "vheltar-ephonixm",
       "title": "Vheltar Ephonixm",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "Vheltar Ephonixm",
       "tags": ["ADDON", "INFLATION"],
-      "category": "addon",
       "featured": false,
       "downloads": [
         {
@@ -156,10 +130,7 @@
       "id": "merge-illusion",
       "title": "MergeIllusion",
       "image": "Images/MergeIllusion.png",
-      "imageClass": "pixel-icon",
-      "alt": "MergeIllusion",
       "tags": ["GAME", "PHONE", "UNITY"],
-      "category": "game",
       "featured": false,
       "downloads": [
         {
@@ -180,10 +151,7 @@
       "id": "af-unicoder",
       "title": "AFUniCoder",
       "image": "Images/NoImage.png",
-      "imageClass": "pixel-icon",
-      "alt": "AFUniCoder",
       "tags": ["TOOL", "WINDOWS"],
-      "category": "tool",
       "featured": false,
       "downloads": [
         {

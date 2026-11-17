@@ -24,7 +24,7 @@
     "about.towaly.bio": "Mainly responsible for requirements and testing.<br>Kuraputi's coworker.<br>Gets scary when playing games. (lol)",
 
     "works.page.sub": "Our Projects",
-    "works.noresults": "No works in this Category yet...",
+    "works.noresults": "No works with this tag yet...",
 
     "download.download": "&gt; Download",
     "download.progress": "&gt; Progress",
@@ -97,7 +97,7 @@
     "about.towaly.bio": "要件・テストを担当<br>Kuraputiのリアル部下<br>ゲームをすると怖くなる(笑)",
 
     "works.page.sub": "これまでの作品はこちら",
-    "works.noresults": "このカテゴリの作品はまだありません...",
+    "works.noresults": "このタグの作品はまだありません...",
 
     "download.download": "&gt; Download",
     "download.progress": "&gt; Progress",
@@ -131,8 +131,8 @@
     "terms.intro": "Atelier Fazzy（以下「私たち」）が配布している作品（アドオン・ツール・ゲームなど）を使う前に、以下の内容を確認してください。作品をダウンロード・使用した時点で、この規約に同意したものとします。",
     "terms.s1.title": "1. 二次配布の禁止",
     "terms.s1.body": "作品を、他のサイト・SNS・配布サービスなどで再配布することを禁止します。改変したものも同様です。作品を紹介していただく場合は、このサイトまたは作品ページへのリンクでお願いします。",
-    "terms.s2.title": "2. モデルの使用禁止",
-    "terms.s2.body": "作品に含まれるモデルを取り出して、他の作品に使ったり、自作のものとして公開したりすることを禁止します。",
+    "terms.s2.title": "2. 無許可での素材の使用禁止",
+    "terms.s2.body": "作品にで使用されている素材を取り出して、他の作品に使ったり、自作のものとして公開したりすることを禁止します。",
     "terms.s3.title": "3. クレジット表記のお願い",
     "terms.s3.body": "作品を紹介・使用していただく際は、「Atelier Fazzy」の名前とこのサイトへのリンクを記載していただけると嬉しいです（必須ではありません）。",
     "terms.s4.title": "4. 免責事項",

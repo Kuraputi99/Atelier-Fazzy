@@ -49,11 +49,12 @@
     </section>
 
     <!-- フィルター部分 -->
-    <div class="filter-bar" role="group" aria-label="Filter works by category">
+    <!-- data-filter には works_data.json の tags と同じ文字を書く -->
+    <div class="filter-bar" role="group" aria-label="Filter works by tag">
       <button class="filter-btn is-active" data-filter="all">ALL</button>
-      <button class="filter-btn" data-filter="addon">ADDON</button>
-      <button class="filter-btn" data-filter="tool">TOOL</button>
-      <button class="filter-btn" data-filter="game">GAME</button>
+      <button class="filter-btn" data-filter="ADDON">ADDON</button>
+      <button class="filter-btn" data-filter="TOOL">TOOL</button>
+      <button class="filter-btn" data-filter="GAME">GAME</button>
     </div>
 
     <!-- 作品カード(works_render.js が作品を追加) -->

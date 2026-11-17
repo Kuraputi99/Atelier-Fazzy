@@ -155,8 +155,10 @@ function renderWorkContent(item, dict) {
     ? '<div class="work-video"><iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(detail.youtubeId) + '" title="YouTube video" allowfullscreen loading="lazy"></iframe></div>'
     : '';
 
-  // 導入方法：作品ごとの文章(work.作品ID.install)が無ければ、カテゴリ共通の文章(detail.install.カテゴリ)を使う
-  const installKey = (dict.ja && dict.ja[key + 'install'] !== undefined) ? key + 'install' : 'detail.install.' + item.category;
+  // 導入方法：作品ごとの文章(work.作品ID.install)が無ければ、タグ共通の文章(detail.install.タグ名の小文字)を使う
+  const hasText = function (k) { return dict.ja && dict.ja[k] !== undefined; };
+  const tagInstallKey = (item.tags || []).map(function (tag) { return 'detail.install.' + tag.toLowerCase(); }).find(hasText);
+  const installKey = hasText(key + 'install') ? key + 'install' : tagInstallKey;
   const installHTML = textElement(dict, installKey, 'ol', 'class="work-steps"', 'list');
 
   const changelog = (detail.changelog || []).map(function (c) {
@@ -168,7 +170,7 @@ function renderWorkContent(item, dict) {
   return '    <section class="work-detail">\n' +
     '      <a class="work-back" href="../works.html" data-i18n="detail.back">detail.back</a>\n' +
     '      <div class="work-hero">\n' +
-    '        <div class="card-thumb work-thumb"><img src="../' + escapeHTML(item.image) + '" alt="' + escapeHTML(item.alt || item.title) + '"' + (item.imageClass ? ' class="' + escapeHTML(item.imageClass) + '"' : '') + '></div>\n' +
+    '        <div class="card-thumb work-thumb"><img src="../' + escapeHTML(item.image) + '" alt="' + escapeHTML(item.title) + '"></div>\n' +
     '        <div class="work-info">\n' +
     '          <h1 class="work-title">' + escapeHTML(item.title) + '</h1>\n' +
     '          ' + textElement(dict, key + 'desc', 'p', 'class="work-desc"') + '\n' +
